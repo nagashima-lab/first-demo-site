@@ -1,101 +1,126 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>資格学習ダッシュボード</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <linktyle.css
+<title>資格学習ダッシュボード Pro</title>
+
+<link rel.css
+
 </head>
 <body>
 
+<div class="header">
+    <h1>📚 資格学習ダッシュボード</h1>
+    <p>Microsoft資格学習管理</p>
+</div>
+
 <div class="container">
 
-    <header>
-        <h1>📚 資格学習ダッシュボード</h1>
-        <p>Microsoft資格学習管理</p>
-    </header>
+    <div class="summary">
+
+        <div class="stat">
+            <h2 id="certCount">4</h2>
+            <p>学習中資格</p>
+        </div>
+
+        <div class="stat">
+            <h2 id="avgProgress">0%</h2>
+            <p>平均進捗率</p>
+        </div>
+
+        <div class="stat">
+            <h2 id="studyHours">128h</h2>
+            <p>累計学習時間</p>
+        </div>
+
+        <div class="stat">
+            <h2 id="badgeCount">0</h2>
+            <p>達成資格</p>
+        </div>
+
+    </div>
+
+    <!-- AZ-900 -->
 
     <div class="card">
 
-        <h2>☁️ AZ-900</h2>
+        <h3>☁️ AZ-900</h3>
 
-        <p>
-            試験日:
-            <strong>2026-12-31</strong>
-        </p>
+        <p id="az900-countdown"></p>
 
-        <p id="countdown-az900"></p>
-
-        <div class="progress">
-            <div id="progress-bar-az900"
-                 class="progress-bar"></div>
+        <div class="progress-title">
+            <span>進捗</span>
+            <span id="az900-percent">0%</span>
         </div>
 
-        <p>
-            進捗率:
-            <span id="progress-text-az900">
-                0%
-            </span>
-        </p>
+        <div class="progress">
+            <div id="az900-bar" class="progress-bar green"></div>
+        </div>
 
-        <ul>
+        <ul class="todo">
 
             <li>
                 <label>
-                    <input type="checkbox"
-                           class="az900-task">
+                    <input type="checkbox" class="az900-task">
                     Azure基礎
                 </label>
             </li>
 
             <li>
                 <label>
-                    <input type="checkbox"
-                           class="az900-task">
+                    <input type="checkbox" class="az900-task">
                     コスト管理
                 </label>
             </li>
 
             <li>
                 <label>
-                    <input type="checkbox"
-                           class="az900-task">
+                    <input type="checkbox" class="az900-task">
                     ネットワーク
                 </label>
             </li>
 
             <li>
                 <label>
-                    <input type="checkbox"
-                           class="az900-task">
+                    <input type="checkbox" class="az900-task">
                     セキュリティ
                 </label>
             </li>
 
             <li>
                 <label>
-                    <input type="checkbox"
-                           class="az900-task">
+                    <input type="checkbox" class="az900-task">
                     模擬試験
                 </label>
             </li>
 
         </ul>
 
-        <div id="badge-az900"
-             class="badge hidden">
-
-            🏆 資格取得準備完了！
-
+        <div id="az900-badge" class="badge hidden">
+            🏆 AZ-900 試験準備完了！
         </div>
 
     </div>
 
-</div>
+    <!-- AI-900 -->
 
-js/app.jsscript>
+    <div class="card">
 
-</body>
-</html>
-        
+        <h3>🤖 AI-900</h3>
+
+        <p id="ai900-countdown"></p>
+
+        <div class="progress-title">
+            <span>進捗</span>
+            <span id="ai900-percent">0%</span>
+        </div>
+
+        <div class="progress">
+            <div id="ai900-bar" class="progress-bar blue"></div>
+        </div>
+
+        <ul class="todo">
+
+         
