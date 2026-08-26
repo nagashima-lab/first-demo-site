@@ -9,7 +9,7 @@
 
     css/style.css
 
-    <script src="https://net/npm/chart.jsscript>
+    <script src.jsdelivr.net/npm/chart.jsscript>
 </head>
 
 <body>
@@ -20,40 +20,66 @@
 
     <header class="hero">
 
-        <div>
+        <div class="hero-content">
 
-            <h1>Microsoft 365 活用部会</h1>
+            <div class="hero-left">
 
-            <p>
-                AIで学び、AIで作り、AIで共有する
-            </p>
+                <h1>🚀 Microsoft 365 活用部会</h1>
 
-            <div class="chips">
+                <p>
+                    AIで学び、AIで作り、AIで共有する
+                </p>
 
-                #schedule予定</a>
+                <div class="hero-buttons">
 
-                <aearning学習</a>
+                    #schedule
+                        📅 部会予定
+                    </a>
 
-                <a href="#links">AI活用       </div>
+                    #learning
+                        📚 資格学習
+                    </a>
 
-        </div>
+                    #links
+                        🤖 AI活用
+                    </a>
 
-        <div class="countdown">
+                </div>
 
-            <div>次回部会</div>
+            </div>
 
-            <div id="nextDays">
-                D-0
+            <div class="hero-right">
+
+                <div class="next-event">
+
+                    <div class="event-title">
+                        次回部会
+                    </div>
+
+                    <div id="nextDays" class="event-count">
+                        D-0
+                    </div>
+
+                    <div id="nextDate" class="event-date">
+                        2026/09/10
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
 
     </header>
 
+    <!-- サマリー -->
+
     <section class="summary" id="summary">
     </section>
 
-    <section class="panel" id="schedule">
+    <!-- 予定 -->
+
+    <section class="card fade-in" id="schedule">
 
         <h2>📅 今後の予定</h2>
 
@@ -61,24 +87,50 @@
 
     </section>
 
-    <section class="panel" id="learning">
+    <!-- 資格 -->
 
-        <h2>📚 資格学習</h2>
+    <section class="card fade-in" id="learning">
 
-        <div id="certificationList" class="cards">
+        <h2>📚 資格学習ダッシュボード</h2>
+
+        <div id="certificationList">
         </div>
 
     </section>
 
-    <section class="panel" id="links">
+    <!-- AIリンク -->
 
-        <h2>🤖 AI活用リンク</h2>
+    <section class="card fade-in" id="links">
+
+        <h2>🤖 AI活用リンク集</h2>
 
         <div id="linkList"></div>
 
     </section>
 
-    <section class="panel">
+    <!-- 今日のおすすめ -->
+
+    <section class="card fade-in">
+
+        <h2>💡 Today's Topic</h2>
+
+        <div class="topic-card">
+
+            <h3>
+                Copilotで業務手順書を作成する
+            </h3>
+
+            <p>
+                Copilotを使った業務効率化の実践例を紹介します。
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ヒートマップ -->
+
+    <section class="card fade-in">
 
         <h2>🌱 学習ヒートマップ</h2>
 
@@ -86,13 +138,25 @@
 
     </section>
 
-    <section class="panel">
+    <!-- グラフ -->
+
+    <section class="card fade-in">
 
         <h2>📈 学習時間推移</h2>
 
         <canvas id="studyChart"></canvas>
 
     </section>
+
+    <!-- フッター -->
+
+    <footer>
+
+        <p>
+            Microsoft 365 活用部会 Portal
+        </p>
+
+    </footer>
 
     js/data.jsscript>
 
