@@ -1,78 +1,66 @@
+const certifications = [
 
-const examDate =
-new Date("2026-12-31");
+{
+    id:"az900",
+    examDate:"2026-12-31"
+},
 
-function updateCountdown(){
-
-    const today = new Date();
-
-    const diff =
-    examDate - today;
-
-    const days =
-    Math.ceil(
-        diff /
-        (1000*60*60*24)
-    );
-
-    document.getElementById(
-        "countdown-az900"
-    ).innerText =
-    `試験まであと ${days} 日`;
+{
+    id:"ai900",
+    examDate:"2026-11-30"
 }
 
-function saveState(){
+];
 
-    const tasks =
-    document.querySelectorAll(
-        ".az900-task"
-    );
+function saveState(id){
 
     const values = [];
 
-    tasks.forEach(task => {
-        values.push(
-            task.checked
-        );
+    document
+    .querySelectorAll(`.${id}-task`)
+    .forEach(task => {
+
+        values.push(task.checked);
+
     });
 
     localStorage.setItem(
-        "az900tasks",
+        id,
         JSON.stringify(values)
     );
+
 }
 
-function loadState(){
+function loadState(id){
 
-    const values =
+    const data =
     JSON.parse(
-        localStorage.getItem(
-            "az900tasks"
-        )
+        localStorage.getItem(id)
     );
 
-    if(!values) return;
+    if(!data) return;
 
     document
-    .querySelectorAll(".az900-task")
+    .querySelectorAll(`.${id}-task`)
     .forEach((task,index)=>{
 
         task.checked =
-        values[index];
+        data[index];
 
     });
+
 }
 
-function updateProgress(){
+function updateCertification(id){
 
     const tasks =
     document.querySelectorAll(
-        ".az900-task"
+        `.${id}-task`
     );
 
     const checked =
     document.querySelectorAll(
-        ".az900-task:checked"
+        `.${id}-task:checked`
     ).length;
 
     const percent =
@@ -83,18 +71,18 @@ function updateProgress(){
     );
 
     document.getElementById(
-        "progress-text-az900"
-    ).innerText =
+        `${id}-percent`
+    ).textContent =
     percent + "%";
 
     document.getElementById(
-        "progress-bar-az900"
+        `${id}-bar`
     ).style.width =
     percent + "%";
 
     const badge =
     document.getElementById(
-        "badge-az900"
+        `${id}-badge`
     );
 
     if(percent === 100){
@@ -108,23 +96,62 @@ function updateProgress(){
         badge.classList.add(
             "hidden"
         );
+
     }
 
-    saveState();
+    saveState(id);
+    updateSummary();
 }
 
-loadState();
+function updateSummary(){
 
-document
-.querySelectorAll(".az900-task")
-.forEach(task=>{
+    const ids =
+    ["az900","ai900"];
 
-    task.addEventListener(
-        "change",
-        updateProgress
-    );
+    let total = 0;
+    let completed = 0;
 
-});
+    ids.forEach(id => {
 
-updateProgress();
-updateCountdown();
+        total += parseInt(
+            document.getElementById(
+                `${id}-percent`
+            ).textContent
+        );
+
+        if(
+            parseInt(
+                document.getElementById(
+                    `${id}-percent`
+                ).textContent
+            ) === 100
+        ){
+            completed++;
+        }
+
+    });
+
+    document.getElementById(
+        "avgProgress"
+    ).textContent =
+    Math.round(
+        total / ids.length
+    ) + "%";
+
+    document.getElementById(
+        "badgeCount"
+    ).textContent =
+    completed;
+}
+
+function updateCountdown(){
+
+    certifications.forEach(cert => {
+
+        const today =
+        new Date();
+
+        const exam =
+        new Date(
+            cert.examDate
+        );
