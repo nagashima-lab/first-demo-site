@@ -46,7 +46,7 @@ function updateCountdown(){
     document.getElementById(
         "nextDays"
     ).textContent =
-        "バルセロナ＆ミラノ";
+        "ミラノ";
 
     document.getElementById(
         "nextDate"
