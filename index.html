@@ -1,23 +1,103 @@
-<section class="card">
+<!DOCTYPE html>
+<html lang="ja">
 
-    <h2>📅 今後の予定</h2>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div id="eventList"></div>
+    <title>Microsoft 365 活用部会ポータル</title>
 
-</section>
+    css/style.css
 
-<section class="card">
+    <script src="https://net/npm/chart.jsscript>
+</head>
 
-    <h2>📚 資格学習</h2>
+<body>
 
-    <div id="certificationList"></div>
+    <button id="themeToggle" class="theme-btn">
+        🌙
+    </button>
 
-</section>
+    <header class="hero">
 
-<section class="card">
+        <div>
 
-    <h2>🤖 AI活用リンク</h2>
+            <h1>Microsoft 365 活用部会</h1>
 
-    <div id="linkList"></div>
+            <p>
+                AIで学び、AIで作り、AIで共有する
+            </p>
 
-</section>
+            <div class="chips">
+
+                #schedule予定</a>
+
+                <aearning学習</a>
+
+                <a href="#links">AI活用       </div>
+
+        </div>
+
+        <div class="countdown">
+
+            <div>次回部会</div>
+
+            <div id="nextDays">
+                D-0
+            </div>
+
+        </div>
+
+    </header>
+
+    <section class="summary" id="summary">
+    </section>
+
+    <section class="panel" id="schedule">
+
+        <h2>📅 今後の予定</h2>
+
+        <div id="eventList"></div>
+
+    </section>
+
+    <section class="panel" id="learning">
+
+        <h2>📚 資格学習</h2>
+
+        <div id="certificationList" class="cards">
+        </div>
+
+    </section>
+
+    <section class="panel" id="links">
+
+        <h2>🤖 AI活用リンク</h2>
+
+        <div id="linkList"></div>
+
+    </section>
+
+    <section class="panel">
+
+        <h2>🌱 学習ヒートマップ</h2>
+
+        <div id="heatmap"></div>
+
+    </section>
+
+    <section class="panel">
+
+        <h2>📈 学習時間推移</h2>
+
+        <canvas id="studyChart"></canvas>
+
+    </section>
+
+    js/data.jsscript>
+
+    js/app.jsscript>
+
+</body>
+
+</html>
