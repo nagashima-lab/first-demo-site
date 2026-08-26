@@ -1,157 +1,160 @@
-const certifications = [
+const radius = 75;
+const circumference = 2 * Math.PI * radius;
 
-{
-    id:"az900",
-    examDate:"2026-12-31"
-},
+const tasks =
+document.querySelectorAll(".task");
 
-{
-    id:"ai900",
-    examDate:"2026-11-30"
+const progressCircle =
+document.getElementById(
+"progressCircle"
+);
+
+function getRank(percent){
+
+if(percent===100)
+return "🏆 Master";
+
+if(percent>=80)
+return "🥇 Gold";
+
+if(percent>=50)
+return "🥈 Silver";
+
+return "🥉 Bronze";
 }
 
-];
+function updateProgress(){
 
-function saveState(id){
+const checked =
+document.querySelectorAll(
+".task:checked"
+).length;
 
-    const values = [];
+const percent =
+Math.round(
+checked /
+tasks.length *
+100
+);
 
-    document
-    .querySelectorAll(`.${id}-task`)
-    .forEach(task => {
+document.getElementById(
+"progressPercent"
+).textContent =
+percent + "%";
 
-        values.push(task.checked);
+document.getElementById(
+"avgProgress"
+).textContent =
+percent + "%";
 
-    });
+document.getElementById(
+"badgeCount"
+).textContent =
+percent===100 ? "1" : "0";
 
-    localStorage.setItem(
-        id,
-        JSON.stringify(values)
-    );
+document.getElementById(
+"rank"
+).textContent =
+getRank(percent);
 
+const offset =
+circumference -
+(percent/100)
+*circumference;
+
+progressCircle.sty*e.strokeDashoffset =
+offset;
+
+loca*Storage.setItem(
+"progress",
+JSON.*tringify(
+Array.from(tasks)
+.map(t*>t.checked)
+)
+);
+
+if(percent===100){
+
+document
+.getElementById("badge")
+.classList.remove("hidden");
+
+}else{
+
+document
+.getElementById("badge")
+.classList.add("hidden");
+}
 }
 
-function loadState(id){
+const saved =
+JSON.parse(
+localStorage.getItem("progress")
+);
 
-    const data =
-    JSON.parse(
-        localStorage.getItem(id)
-    );
+if(saved){
 
-    if(!data) return;
-
-    document
-    .querySelectorAll(`.${id}-task`)
-    .forEach((task,index)=>{
-
-        task.checked =
-        data[index];
-
-    });
-
+tasks.forEach((t,i)=>{
+t.checked=saved[i];
+});
 }
 
-function updateCertification(id){
-
-    const tasks =
-    document.querySelectorAll(
-        `.${id}-task`
-    );
-
-    const checked =
-    document.querySelectorAll(
-        `.${id}-task:checked`
-    ).length;
-
-    const percent =
-    Math.round(
-        checked /
-        tasks.length *
-        100
-    );
-
-    document.getElementById(
-        `${id}-percent`
-    ).textContent =
-    percent + "%";
-
-    document.getElementById(
-        `${id}-bar`
-    ).style.width =
-    percent + "%";
-
-    const badge =
-    document.getElementById(
-        `${id}-badge`
-    );
-
-    if(percent === 100){
-
-        badge.classList.remove(
-            "hidden"
-        );
-
-    }else{
-
-        badge.classList.add(
-            "hidden"
-        );
-
-    }
-
-    saveState(id);
-    updateSummary();
-}
-
-function updateSummary(){
-
-    const ids =
-    ["az900","ai900"];
-
-    let total = 0;
-    let completed = 0;
-
-    ids.forEach(id => {
-
-        total += parseInt(
-            document.getElementById(
-                `${id}-percent`
-            ).textContent
-        );
-
-        if(
-            parseInt(
-                document.getElementById(
-                    `${id}-percent`
-                ).textContent
-            ) === 100
-        ){
-            completed++;
-        }
-
-    });
-
-    document.getElementById(
-        "avgProgress"
-    ).textContent =
-    Math.round(
-        total / ids.length
-    ) + "%";
-
-    document.getElementById(
-        "badgeCount"
-    ).textContent =
-    completed;
-}
+tasks.forEach(task=>{
+task.addEventListener(
+"change",
+updateProgress
+);
+});
 
 function updateCountdown(){
 
-    certifications.forEach(cert => {
+const exam =
+new Date("2026-12-31");
 
-        const today =
-        new Date();
+const today =
+new Date();
 
-        const exam =
-        new Date(
-            cert.examDate
-        );
+const diff =
+Math.ceil(
+(exam-today)/
+(1000*60*60*24)
+);
+
+document
+.getElementById("countdown")
+.textContent =
+"📅 D-" + diff;
+}
+
+function recordStudy(){
+
+const today =
+new Date()
+.toISOString()
+.split("T")[0];
+
+const last =
+localStorage.getItem(
+"lastStudy"
+);
+
+let streak =
+parseInt(
+localStorage.getItem(
+"streak"
+)||0
+);
+
+const yesterday =
+new Date();
+
+yesterday.setDate(
+yesterday.getDate()-1
+);
+
+const y =
+yesterday
+.toISOString()
+.split("T")[0];
+
+if(last===today){
