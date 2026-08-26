@@ -1,6 +1,6 @@
 const portalData = {
 
-    nextMeeting: "2026-09-10",
+    nextMeeting: "2026-08-28",
 
     summary: [
         {
