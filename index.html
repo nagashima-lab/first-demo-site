@@ -1,191 +1,23 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<section class="card">
 
-<title>Certification Hub</title>
+    <h2>📅 今後の予定</h2>
 
-<link yle.css
-
-<script src="https://cdn.jsdelivr.net/npm/charthead>
-
-<body>
-
-<button id="themeToggle" class="theme-btn">
-🌙
-</button>
-
-<header class="hero">
-
-<h1>📚 Certification Hub</h1>
-
-<p>
-Microsoft認定資格学習ダッシュボード
-</p>
-
-</header>
-
-<div class="dashboard">
-
-<div class="stat streak">
-    <div class="icon">🔥</div>
-    <h2 id="streakDays">0</h2>
-    <p>連続学習日数</p>
-</div>
-
-<div class="stat">
-    <div class="icon">📈</div>
-    <h2 id="avgProgress">0%</h2>
-    <p>平均進捗率</p>
-</div>
-
-<div class="stat">
-    <div class="icon">🏆</div>
-    <h2 id="badgeCount">0</h2>
-    <p>達成資格</p>
-</div>
-
-<div class="stat">
-    <div class="icon">📚</div>
-    <h2 id="studyHours">128h</h2>
-    <p>学習時間</p>
-</div>
-
-</div>
-
-<section class="goal-card">
-
-<h2>🎯 Today's Goal</h2>
-
-<label><input type="checkbox"> AI-900を30分学習</label>
-<label><input type="checkbox"> 模擬試験を1回実施</label>
-<label><input type="checkbox"> Microsoft Learnを2モジュール完了</label>
+    <div id="eventList"></div>
 
 </section>
 
 <section class="card">
 
-<div class="card-header">
+    <h2>📚 資格学習</h2>
 
-<h2>☁️ AZ-900</h2>
-
-<span id="countdown">📅 D-0</span>
-
-</div>
-
-<div class="circle-wrap">
-
-<svg class="circle" width="180" height="180">
-
-<circle
-cx="90"
-cy="90"
-r="75"
-class="bg-circle"/>
-
-<circle
-cx="90"
-cy="90"
-r="75"
-class="progress-circle"
-id="progressCircle"/>
-
-</svg>
-
-<div id="progressPercent"
-     class="circle-value">
-
-0%
-
-</div>
-
-</div>
-
-<div class="rank"
-     id="rank">
-
-🥉 Bronze Learner
-
-</div>
-
-<ul class="todo">
-
-<li>
-<label>
-<input type="checkbox"
-class="task">
-Azure基礎
-</label>
-</li>
-
-<li>
-<label>
-<input type="checkbox"
-class="task">
-コスト管理
-</label>
-</li>
-
-<li>
-<label>
-<input type="checkbox"
-class="task">
-ネットワーク
-</label>
-</li>
-
-<li>
-<label>
-<input type="checkbox"
-class="task">
-セキュリティ
-</label>
-</li>
-
-<li>
-<label>
-<input type="checkbox"
-class="task">
-模擬試験
-</label>
-</li>
-
-</ul>
-
-<button id="studyButton"
-        class="study-btn">
-
-📖 今日学習した
-
-</button>
-
-<div id="badge"
-     class="badge hidden">
-
-🎉 Master Badge Unlocked
-
-</div>
+    <div id="certificationList"></div>
 
 </section>
 
-<section class="heatmap-section">
+<section class="card">
 
-<h2>🌱 学習ヒートマップ</h2>
+    <h2>🤖 AI活用リンク</h2>
 
-<div id="heatmap"></div>
-
-</section>
-
-<section class="chart-card">
-
-<h2>📈 学習時間推移</h2>
-
-<canvas id="studyChart"></canvas>
+    <div id="linkList"></div>
 
 </section>
-
-js/app.jsscript>
-
-</body>
-</html>
