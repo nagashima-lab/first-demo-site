@@ -4,123 +4,188 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>資格学習ダッシュボード Pro</title>
+<title>Certification Hub</title>
 
-<link rel.css
+<link yle.css
 
-</head>
+<script src="https://cdn.jsdelivr.net/npm/charthead>
+
 <body>
 
-<div class="header">
-    <h1>📚 資格学習ダッシュボード</h1>
-    <p>Microsoft資格学習管理</p>
+<button id="themeToggle" class="theme-btn">
+🌙
+</button>
+
+<header class="hero">
+
+<h1>📚 Certification Hub</h1>
+
+<p>
+Microsoft認定資格学習ダッシュボード
+</p>
+
+</header>
+
+<div class="dashboard">
+
+<div class="stat streak">
+    <div class="icon">🔥</div>
+    <h2 id="streakDays">0</h2>
+    <p>連続学習日数</p>
 </div>
 
-<div class="container">
+<div class="stat">
+    <div class="icon">📈</div>
+    <h2 id="avgProgress">0%</h2>
+    <p>平均進捗率</p>
+</div>
 
-    <div class="summary">
+<div class="stat">
+    <div class="icon">🏆</div>
+    <h2 id="badgeCount">0</h2>
+    <p>達成資格</p>
+</div>
 
-        <div class="stat">
-            <h2 id="certCount">4</h2>
-            <p>学習中資格</p>
-        </div>
+<div class="stat">
+    <div class="icon">📚</div>
+    <h2 id="studyHours">128h</h2>
+    <p>学習時間</p>
+</div>
 
-        <div class="stat">
-            <h2 id="avgProgress">0%</h2>
-            <p>平均進捗率</p>
-        </div>
+</div>
 
-        <div class="stat">
-            <h2 id="studyHours">128h</h2>
-            <p>累計学習時間</p>
-        </div>
+<section class="goal-card">
 
-        <div class="stat">
-            <h2 id="badgeCount">0</h2>
-            <p>達成資格</p>
-        </div>
+<h2>🎯 Today's Goal</h2>
 
-    </div>
+<label><input type="checkbox"> AI-900を30分学習</label>
+<label><input type="checkbox"> 模擬試験を1回実施</label>
+<label><input type="checkbox"> Microsoft Learnを2モジュール完了</label>
 
-    <!-- AZ-900 -->
+</section>
 
-    <div class="card">
+<section class="card">
 
-        <h3>☁️ AZ-900</h3>
+<div class="card-header">
 
-        <p id="az900-countdown"></p>
+<h2>☁️ AZ-900</h2>
 
-        <div class="progress-title">
-            <span>進捗</span>
-            <span id="az900-percent">0%</span>
-        </div>
+<span id="countdown">📅 D-0</span>
 
-        <div class="progress">
-            <div id="az900-bar" class="progress-bar green"></div>
-        </div>
+</div>
 
-        <ul class="todo">
+<div class="circle-wrap">
 
-            <li>
-                <label>
-                    <input type="checkbox" class="az900-task">
-                    Azure基礎
-                </label>
-            </li>
+<svg class="circle" width="180" height="180">
 
-            <li>
-                <label>
-                    <input type="checkbox" class="az900-task">
-                    コスト管理
-                </label>
-            </li>
+<circle
+cx="90"
+cy="90"
+r="75"
+class="bg-circle"/>
 
-            <li>
-                <label>
-                    <input type="checkbox" class="az900-task">
-                    ネットワーク
-                </label>
-            </li>
+<circle
+cx="90"
+cy="90"
+r="75"
+class="progress-circle"
+id="progressCircle"/>
 
-            <li>
-                <label>
-                    <input type="checkbox" class="az900-task">
-                    セキュリティ
-                </label>
-            </li>
+</svg>
 
-            <li>
-                <label>
-                    <input type="checkbox" class="az900-task">
-                    模擬試験
-                </label>
-            </li>
+<div id="progressPercent"
+     class="circle-value">
 
-        </ul>
+0%
 
-        <div id="az900-badge" class="badge hidden">
-            🏆 AZ-900 試験準備完了！
-        </div>
+</div>
 
-    </div>
+</div>
 
-    <!-- AI-900 -->
+<div class="rank"
+     id="rank">
 
-    <div class="card">
+🥉 Bronze Learner
 
-        <h3>🤖 AI-900</h3>
+</div>
 
-        <p id="ai900-countdown"></p>
+<ul class="todo">
 
-        <div class="progress-title">
-            <span>進捗</span>
-            <span id="ai900-percent">0%</span>
-        </div>
+<li>
+<label>
+<input type="checkbox"
+class="task">
+Azure基礎
+</label>
+</li>
 
-        <div class="progress">
-            <div id="ai900-bar" class="progress-bar blue"></div>
-        </div>
+<li>
+<label>
+<input type="checkbox"
+class="task">
+コスト管理
+</label>
+</li>
 
-        <ul class="todo">
+<li>
+<label>
+<input type="checkbox"
+class="task">
+ネットワーク
+</label>
+</li>
 
-         
+<li>
+<label>
+<input type="checkbox"
+class="task">
+セキュリティ
+</label>
+</li>
+
+<li>
+<label>
+<input type="checkbox"
+class="task">
+模擬試験
+</label>
+</li>
+
+</ul>
+
+<button id="studyButton"
+        class="study-btn">
+
+📖 今日学習した
+
+</button>
+
+<div id="badge"
+     class="badge hidden">
+
+🎉 Master Badge Unlocked
+
+</div>
+
+</section>
+
+<section class="heatmap-section">
+
+<h2>🌱 学習ヒートマップ</h2>
+
+<div id="heatmap"></div>
+
+</section>
+
+<section class="chart-card">
+
+<h2>📈 学習時間推移</h2>
+
+<canvas id="studyChart"></canvas>
+
+</section>
+
+js/app.jsscript>
+
+</body>
+</html>
